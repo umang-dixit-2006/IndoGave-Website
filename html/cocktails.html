@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCKTAILS | INDOGAVE</title>
+    <link rel="stylesheet" href="/css/cocktails.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page-transition"></div>
+
+    <main class="cocktail-app">
+        <section class="cocktail-hero">
+            <h1 class="section-title">COCKTAILS</h1>
+
+            <div class="featured-cocktail">
+                <h2 class="cocktail-name">INDOGAVE WITH ORANGE</h2>
+
+                <div class="cocktail-image">
+                    <img src="https://images.unsplash.com/photo-1551751299-1b51cab2694c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Indogave with Orange cocktail">
+                </div>
+
+                <div class="ingredient-list">
+                    <h3>INGREDIENT LIST:</h3>
+                    <ul>
+                        <li>2 oz Indogave Silver Oil Gold</li>
+                        <li>2 oz Freshly Squeezed Grapefruit Juice</li>
+                        <li>1/2 oz Lime Juice</li>
+                        <li>½ oz Agave Syrup</li>
+                        <li>1 oz Club soda</li>
+                        <li>Grapefruit Silks (Fee Garnish)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <button class="view-all-btn" id="viewAllBtn">VIEW ALL RECIPES</button>
+        </section>
+
+        <section class="all-recipes-modal" id="recipesModal">
+            <div class="modal-content">
+                <button class="close-modal" id="closeModal">&times;</button>
+                <h2 class="modal-title">OUR COCKTAILS COLLECTION</h2>
+
+                <div class="recipes-grid">
+                    <!-- Recipe 1 -->
+                    <div class="recipe-card">
+                        <div class="recipe-image">
+                            <img src="https://images.unsplash.com/photo-1551751299-1b51cab2694c?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Ameragave with Orange">
+                        </div>
+                        <h3>INDOGAVE WITH ORANGE</h3>
+                        <button class="buy-btn">BUY INGREDIENTS</button>
+                    </div>
+
+                    <!-- Recipe 2 -->
+                    <div class="recipe-card">
+                        <div class="recipe-image">
+                            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Ameragave Spritz">
+                        </div>
+                        <h3>INDOGAVE SPRITZ</h3>
+                        <button class="buy-btn">BUY INGREDIENTS</button>
+                    </div>
+
+                    <!-- Recipe 3 -->
+                    <div class="recipe-card">
+                        <div class="recipe-image">
+                            <img src="https://images.unsplash.com/photo-1438522014717-d7ce32b9bab9?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Smoky Ameragave">
+                        </div>
+                        <h3>SMOKY INDOGAVE</h3>
+                        <button class="buy-btn">BUY INGREDIENTS</button>
+                    </div>
+
+                    <!-- Recipe 4 -->
+                    <div class="recipe-card">
+                        <div class="recipe-image">
+                            <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Ameragave Old Fashioned">
+                        </div>
+                        <h3>INDOGAVE OLD FASHIONED</h3>
+                        <button class="buy-btn">BUY INGREDIENTS</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Add this right before closing </body> tag -->
+    <div class="purchase-modal" id="purchaseModal">
+        <div class="purchase-content">
+            <button class="close-purchase" id="closePurchase">&times;</button>
+            <h3>COMPLETE YOUR PURCHASE</h3>
+            <div class="purchase-details">
+                <div class="product-image">
+                    <img src="" alt="" id="modalProductImage">
+                </div>
+                <div class="product-info">
+                    <h4 id="modalProductName"></h4>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="decreaseQty">−</button>
+                        <span id="productQty">1</span>
+                        <button class="quantity-btn" id="increaseQty">+</button>
+                    </div>
+                    <p class="price">$<span id="productPrice">32.99</span></p>
+                    <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+                </div>
+            </div>
+            <p class="secure-checkout">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="#8B7D6B" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12Z" stroke="#8B7D6B" stroke-width="2"/>
+            </svg> Secure Checkout
+            </p>
+        </div>
+    </div>
+    <script src="/js/cocktails.js"></script>
+</body>
+
+</html>
