@@ -1,0 +1,429 @@
+:root {
+    --primary-color: #000000;
+    --secondary-color: #333333;
+    --accent-color: #8B7D6B;
+    --light-color: #F5F5F5;
+    --font-main: 'Montserrat', sans-serif;
+    --font-display: 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--primary-color);
+    background: linear-gradient( 135deg, rgba(245, 245, 245, 0.95) 0%, rgba(228, 189, 104, 0.95) 100%);
+    overflow-x: hidden;
+}
+
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( 135deg, rgba(245, 245, 245, 0.95) 0%, rgba(228, 189, 104, 0.95) 100%);
+    z-index: 999;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.cocktail-app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 1px;
+}
+
+.featured-cocktail {
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.cocktail-name {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.cocktail-image {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.cocktail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ingredient-list {
+    margin-bottom: 3rem;
+}
+
+.ingredient-list h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.ingredient-list ul {
+    list-style: none;
+}
+
+.ingredient-list li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.ingredient-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+.view-all-btn {
+    display: block;
+    margin: 0 auto;
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    padding: 1rem 2.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+
+/* Modal Styles */
+
+.all-recipes-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-color);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.all-recipes-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: linear-gradient( 135deg, rgba(245, 245, 245, 0.95) 0%, rgba(228, 189, 104, 0.95) 100%);
+    padding: 4rem;
+    max-width: 1200px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: transform 0.3s ease;
+}
+
+.close-modal:hover {
+    transform: rotate(90deg);
+}
+
+.modal-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 400;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.recipe-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.recipe-image {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.recipe-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.recipe-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.buy-btn {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    padding: 0.7rem 1.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+}
+
+.buy-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+
+/* Add these new styles */
+
+.purchase-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.purchase-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.purchase-content {
+    background-color: var(--light-color);
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 2px;
+    position: relative;
+}
+
+.purchase-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 400;
+}
+
+.purchase-details {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.product-image {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info h4 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.price {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.checkout-btn {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: none;
+    padding: 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.checkout-btn:hover {
+    background-color: var(--accent-color);
+}
+
+.secure-checkout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+}
+
+.close-purchase {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+
+/* Animation Classes */
+
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.all-recipes-modal.active .recipe-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.all-recipes-modal.active .recipe-card:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.all-recipes-modal.active .recipe-card:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.all-recipes-modal.active .recipe-card:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.all-recipes-modal.active .recipe-card:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+
+/* Hover Effects */
+
+.recipe-image:hover img {
+    transform: scale(1.05);
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    .cocktail-app {
+        padding: 2rem 1rem;
+    }
+    .modal-content {
+        padding: 2rem;
+    }
+    .recipes-grid {
+        grid-template-columns: 1fr;
+    }
+}
